@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How Stave Churches handles guest visits, account data, ratings and optional location verification.">
+  <title>Privacy | Stave Churches</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="shell">
+      <a class="brand" href="index.html">Stave Churches</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Support</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+    </div>
+  </header>
+  <main class="shell" id="main">
+    <h1>Your visits. Your choices.</h1>
+    <p class="lead">This policy explains how the Stave Churches app and its support website handle information.</p>
+    <p class="muted">Last updated: 25 November 2026.</p>
+
+    <h2>Who is responsible?</h2>
+    <p>Data controller and publisher: <strong>Ole Kristian Hartvigsen</strong>.</p>
+    <p>Privacy contact: <a href="mailto:ole.kristian.hartvigsen@gmail.com?subject=Stave%20Churches%20privacy">ole.kristian.hartvigsen@gmail.com</a>.</p>
+
+    <h2>Using the app as a guest</h2>
+    <p>Guest visit records contain church identifiers, visit dates and, if you choose location verification, a verification timestamp. They are stored on your device, not uploaded as an account passport. Passport stamps, collections and milestones are calculated from those visits.</p>
+    <p>Signing in does not automatically import guest visits. If you explicitly import them, a copy is added to the selected account and can sync to our hosting provider. The guest original stays on the device.</p>
+    <p>Guest mode is not a promise of no network requests. Reading community ratings sends the selected church identifier to the backend. Maps, sign-in and external links also use online services.</p>
+
+    <h2>Accounts and sign-in</h2>
+    <p>Accounts currently use Google sign-in through Supabase. Authentication information can include your email address, account identifier, provider identity and profile information returned by Google, such as a name or profile image. We use account identity to sign you in and keep each account's records separate.</p>
+    <p>The app does not receive your Google password. Authentication session data is encrypted on the device using a key protected by the operating system. Visit and rating caches are not separately encrypted by the app.</p>
+
+    <h2>Synced visits and ratings</h2>
+    <p>When signed in, the app stores your account's church visits, dates, optional verification timestamps and star ratings with Supabase. Records are associated with your account identifier. Sync also stores revision and update information to coordinate changes between devices.</p>
+    <p>Your named visit history is not publicly listed. Community endpoints return rating averages and counts, not account identities or a list of individual ratings. Only ratings associated with a currently synced visit contribute. A summary with just one contributing rater can necessarily reveal that score.</p>
+    <p>Removing a visit retains its star rating privately but excludes it from community averages after the visit removal syncs. Marking the church visited again restores its eligibility. Signing out leaves that account's cached visits and pending changes on the device for that same account.</p>
+    <p>Visit histories identify places you choose to record. Do not sync a history you do not want stored with your account.</p>
+
+    <h2>Optional location verification</h2>
+    <p>The app requests foreground location permission only when you choose to verify a visit. It obtains a current location and checks proximity to the selected church on your device.</p>
+    <p>The visit record stores the church identifier and verification timestamp, not your raw GPS coordinates, location accuracy or movement history. If signed in, that visit and timestamp sync with your account and can indicate that you verified being near that church at that time. The app does not run background location tracking.</p>
+    <p>You can decline or revoke location permission and continue logging visits manually. Your operating system and location service handle location requests under their own privacy policies.</p>
+
+    <h2>Service providers and connections</h2>
+    <ul>
+      <li><strong>Supabase</strong> provides authentication and the account database, and processes network requests and associated technical information to operate and secure the service. See the <a href="https://supabase.com/privacy">Supabase privacy policy</a>.</li>
+      <li><strong>Google</strong> handles the current sign-in flow. The platform map provider also processes map requests under its own terms. See the <a href="https://policies.google.com/privacy">Google privacy policy</a> and <a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a>, as applicable.</li>
+      <li><strong>Email providers</strong> process the messages and attachments you choose to send to support. The support address uses Gmail.</li>
+      <li><strong>GitHub Pages</strong> hosts this website when published. GitHub records visitors' IP addresses for security. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a>.</li>
+    </ul>
+    <p>External church, museum and other websites have their own privacy practices. This website contains no advertising, analytics scripts, external fonts or custom tracking cookies. The current app does not include advertising or product-analytics SDKs, and visit records are not used for advertising or cross-app tracking.</p>
+    <p>The account database is configured in Supabase's Europe region. This is not a promise that all providers or all processing stay in Europe. Supabase and its subprocessors may process information in other countries. Its <a href="https://supabase.com/legal/customer-resources/data-processing-addendum">data processing addendum</a> provides for Standard Contractual Clauses where applicable to international transfers. Google, Apple, GitHub and email providers also process information according to their respective privacy terms.</p>
+
+    <h2>Retention and deletion</h2>
+    <p>Guest records stay on the device until you remove visits or the local app data is removed. Account records remain until you edit/remove them or delete the account, subject to the retained-rating behaviour described above. Unsynced local data and guest visits can be lost if the app or its data is removed.</p>
+    <p>You can request account deletion inside the app at <strong>Account &gt; Delete my account</strong>. After server confirmation, the app clears that account's cached visits, ratings and session on the deleting device. Separate guest visits and other accounts' caches stay in place. Cloud deletion removes the app account, its identities and refresh sessions, visits and ratings; deleted ratings stop contributing to community summaries.</p>
+    <p>A hash-only technical confirmation receipt remains without automatic expiry so an interrupted request can finish safely without relying on the deleted account's credentials. It does not contain an email, raw user identifier, visits or ratings. It is not a retained copy of the deleted passport.</p>
+    <p>Deletion does not delete your Google account, automatically remove support emails, or remotely erase cached data on other devices. Signing out is not account deletion. See <a href="index.html">account deletion support</a> if a request is interrupted or you cannot sign in.</p>
+    <p>Supabase's current Free plan includes one-day retention for API and database service logs. This does not mean that all authentication audit records or provider security records expire after one day. Automatic daily project backups are not included on this plan.</p>
+    <p>Writing authentication audit logs to the project database is disabled. This setting does not itself erase any older records. Security records held by service providers are subject to their own retention practices and are not promised to disappear when an app account is deleted.</p>
+    <p>The publisher currently keeps no manual database backups or exports. We will update this information if the backup arrangements change.</p>
+    <p>Support correspondence is deleted within 90 days after the issue is resolved, unless it is needed for an ongoing dispute or a legal obligation. This is a manual retention policy; account deletion does not automatically delete email correspondence.</p>
+
+    <h2>Your privacy choices and rights</h2>
+    <p>You can use guest mode, decline location verification, choose whether to import guest visits, edit visit dates, remove visits and delete your account. Contact support for access, correction, export or other privacy requests and provide only what is needed to identify the relevant account. We may need to verify ownership before acting.</p>
+    <p>Where applicable, data protection law also provides rights to erasure, restriction, portability and objection, withdrawal of consent where processing relies on consent, and a complaint to a competent supervisory authority. Nothing in this policy limits those rights.</p>
+    <h2>Why we process information</h2>
+    <p>Where the GDPR applies, account authentication and the visit/rating sync you request are processed to provide that service under Article 6(1)(b). Handling support enquiries and protecting the service rely on legitimate interests under Article 6(1)(f), balanced against your rights; responding to legally required requests relies on Article 6(1)(c).</p>
+    <p>Location verification is optional and initiated by you, with device permission. Raw coordinates are checked on your device rather than saved to the account database. Device permission does not waive your privacy rights. We do not use church visits to infer or classify your religious beliefs.</p>
+
+    <h2>Changes and contact</h2>
+    <p>We will update this policy when the app's data practices change and show an updated date. Contact <a href="mailto:ole.kristian.hartvigsen@gmail.com?subject=Stave%20Churches%20privacy">privacy support</a> with questions.</p>
+  </main>
+  <footer>
+    <div class="shell">
+      <p>Stave Churches | <a href="index.html">Support</a> | <a href="terms.html">Terms of use</a></p>
+    </div>
+  </footer>
+</body>
+</html>
