@@ -22,7 +22,7 @@
   <main class="shell" id="main">
     <h1>Your visits. Your choices.</h1>
     <p class="lead">This policy explains how the Stave Churches app and its support website handle information.</p>
-    <p class="muted">Last updated: 25 November 2026.</p>
+    <p class="muted">Last updated: 26 November 2026.</p>
 
     <h2>Who is responsible?</h2>
     <p>Data controller and publisher: <strong>Ole Kristian Hartvigsen</strong>.</p>
@@ -34,8 +34,10 @@
     <p>Guest mode is not a promise of no network requests. Reading community ratings sends the selected church identifier to the backend. Maps, sign-in and external links also use online services.</p>
 
     <h2>Accounts and sign-in</h2>
-    <p>Accounts currently use Google sign-in through Supabase. Authentication information can include your email address, account identifier, provider identity and profile information returned by Google, such as a name or profile image. We use account identity to sign you in and keep each account's records separate.</p>
-    <p>The app does not receive your Google password. Authentication session data is encrypted on the device using a key protected by the operating system. Visit and rating caches are not separately encrypted by the app.</p>
+    <p>Accounts use Google or Sign in with Apple through Supabase where available. Authentication information includes your account identifier and provider identity, and can include your email address and profile information returned by Google, such as a name or profile image. We use account identity to sign you in and keep each account's records separate.</p>
+    <p>Apple sign-in requests your email address, not your full name. If Apple offers Hide My Email and you choose it, your account can use Apple's private relay email address instead of your personal address.</p>
+    <p>Supabase can automatically link Apple and Google identities that share a verified email address to the same app account. These sign-in methods then share that account's visits and ratings; they are not separate passports.</p>
+    <p>The app does not receive your Apple or Google password. Authentication session data is encrypted on the device using a key protected by the operating system. Visit and rating caches are not separately encrypted by the app.</p>
 
     <h2>Synced visits and ratings</h2>
     <p>When signed in, the app stores your account's church visits, dates, optional verification timestamps and star ratings with Supabase. Records are associated with your account identifier. Sync also stores revision and update information to coordinate changes between devices.</p>
@@ -51,10 +53,12 @@
     <h2>Service providers and connections</h2>
     <ul>
       <li><strong>Supabase</strong> provides authentication and the account database, and processes network requests and associated technical information to operate and secure the service. See the <a href="https://supabase.com/privacy">Supabase privacy policy</a>.</li>
-      <li><strong>Google</strong> handles the current sign-in flow. The platform map provider also processes map requests under its own terms. See the <a href="https://policies.google.com/privacy">Google privacy policy</a> and <a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a>, as applicable.</li>
+      <li><strong>Google</strong> handles Google sign-in. See the <a href="https://policies.google.com/privacy">Google privacy policy</a>.</li>
+      <li><strong>Apple</strong> handles Sign in with Apple. Our Supabase backend also communicates with Apple to verify authorization and revoke Apple tokens during app-account deletion. See the <a href="https://www.apple.com/legal/privacy/">Apple privacy policy</a>.</li>
       <li><strong>Email providers</strong> process the messages and attachments you choose to send to support. The support address uses Gmail.</li>
       <li><strong>GitHub Pages</strong> hosts this website. GitHub records visitors' IP addresses for security. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a>.</li>
     </ul>
+    <p>The platform map provider also processes map requests under its own terms and privacy policy, as applicable.</p>
     <p>Backend connection logs can contain IP addresses, user-agent information, request details and status codes, and approximate country, city or region derived from an IP address. This approximate network location is separate from the optional GPS visit check and can be processed when using the app as a guest. Operational logs are used to operate, secure and troubleshoot the service, not for advertising or product-usage analytics.</p>
     <p>External church, museum and other websites have their own privacy practices. This website contains no advertising, analytics scripts, external fonts or custom tracking cookies. The current app does not include advertising or product-analytics SDKs, and visit records are not used for advertising or cross-app tracking.</p>
     <p>The account database is configured in Supabase's Europe region. This is not a promise that all providers or all processing stay in Europe. Supabase and its subprocessors may process information in other countries. Its <a href="https://supabase.com/legal/customer-resources/data-processing-addendum">data processing addendum</a> provides for Standard Contractual Clauses where applicable to international transfers. Google, Apple, GitHub and email providers also process information according to their respective privacy terms.</p>
@@ -62,8 +66,9 @@
     <h2>Retention and deletion</h2>
     <p>Guest records stay on the device until you remove visits or the local app data is removed. Account records remain until you edit/remove them or delete the account, subject to the retained-rating behaviour described above. Unsynced local data and guest visits can be lost if the app or its data is removed.</p>
     <p>You can request account deletion inside the app at <strong>Account &gt; Delete my account</strong>. After server confirmation, the app clears that account's cached visits, ratings and session on the deleting device. Separate guest visits and other accounts' caches stay in place. Cloud deletion removes the app account, its identities and refresh sessions, visits and ratings; deleted ratings stop contributing to community summaries.</p>
+    <p>Starting deletion of an Apple-linked account asks for fresh Apple confirmation before saving a new pending request. Cancelling that confirmation leaves the account intact. After confirmation, our backend exchanges the one-use Apple authorization code, verifies the Apple identity and revokes the resulting Apple refresh token before deleting the app account. Our deletion code does not persist these Apple credentials or include them in diagnostic messages.</p>
     <p>A hash-only technical confirmation receipt remains without automatic expiry so an interrupted request can finish safely without relying on the deleted account's credentials. It does not contain an email, raw user identifier, visits or ratings. It is not a retained copy of the deleted passport.</p>
-    <p>Deletion does not delete your Google account, automatically remove support emails, or remotely erase cached data on other devices. Signing out is not account deletion. See <a href="index.html">account deletion support</a> if a request is interrupted or you cannot sign in.</p>
+    <p>Deletion applies to the whole app account, including linked Apple and Google sign-in methods. It does not delete your Apple or Google account, automatically remove support emails, or remotely erase cached data on other devices. Signing out is not account deletion. See <a href="index.html">account deletion support</a> if a request is interrupted or you cannot sign in.</p>
     <p>Supabase's current Free plan includes one-day retention for API and database service logs. This does not mean that all authentication audit records or provider security records expire after one day. Automatic daily project backups are not included on this plan.</p>
     <p>Writing authentication audit logs to the project database is disabled. This setting does not itself erase any older records. Security records held by service providers are subject to their own retention practices and are not promised to disappear when an app account is deleted.</p>
     <p>The publisher currently keeps no manual database backups or exports. We will update this information if the backup arrangements change.</p>
